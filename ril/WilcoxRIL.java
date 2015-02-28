@@ -35,7 +35,7 @@ import java.util.Collections;
  *
  * {@hide}
  */
-public class SerranoRIL extends RIL {
+public class WilcoxRIL extends RIL {
 
     private static final int RIL_REQUEST_DIAL_EMERGENCY = 10016;
     private static final int RIL_UNSOL_RESPONSE_IMS_NETWORK_STATE_CHANGED = 1036;
