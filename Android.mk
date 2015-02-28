@@ -1,4 +1,4 @@
-# Copyright (C) 2013 The Android Open-Source Project
+# Copyright (C) 2014 The Android Open-Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,12 +20,8 @@
 # are responsible for having their own logic, for fine-grained control.
 
 LOCAL_PATH := $(call my-dir)
-
 ifeq ($(BOARD_VENDOR),samsung)
 ifeq ($(TARGET_BOARD_PLATFORM),msm8960)
-ifneq ($(filter serrano3gxx serranodsdd serranodsub serranoltebmc \
-                serranoltespr serranolteusc serranoltexx,$(TARGET_DEVICE)),)
-include $(call all-subdir-makefiles,$(LOCAL_PATH))
-endif
-endif
+ifeq ($(TARGET_DEVICE), wilcoxltexx)
+include $(call all-makefiles-under,$(LOCAL_PATH))
 endif
