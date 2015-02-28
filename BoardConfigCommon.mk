@@ -23,25 +23,22 @@
 # inherit from common msm8930
 -include device/samsung/msm8930-common/BoardConfigCommon.mk
 
-TARGET_SPECIFIC_HEADER_PATH := device/samsung/serrano-common/include
+TARGET_SPECIFIC_HEADER_PATH := device/samsung/wilcox-common/include
 
 # Kernel
 BOARD_KERNEL_CMDLINE         := androidboot.hardware=qcom user_debug=23 androidboot.bootdevice=msm_sdcc.1
 BOARD_KERNEL_BASE            := 0x80200000
 BOARD_MKBOOTIMG_ARGS         := --ramdisk_offset 0x02000000
 BOARD_KERNEL_PAGESIZE        := 2048
-TARGET_KERNEL_SOURCE         := kernel/samsung/msm8930-common
-ifneq ($(filter serranoltespr serranolteusc,$(TARGET_DEVICE)),)
-TARGET_KERNEL_CONFIG         := cyanogen_serrano_usa_defconfig
-else
-TARGET_KERNEL_CONFIG         := cyanogen_serrano_defconfig
-endif
+TARGET_KERNEL_SOURCE         := kernel/samsung/msm8930
+TARGET_KERNEL_CONFIG         := cyanogen_cane_defconfig
+TARGET_KERNEL_VARIANT_CONFIG := msm8930_cane_wilcox_eur_lte_defconfig
 TARGET_KERNEL_SELINUX_CONFIG := selinux_defconfig
 
 TARGET_BOOTLOADER_BOARD_NAME := MSM8960
 
 # Recovery
-TARGET_RECOVERY_FSTAB := device/samsung/serrano-common/rootdir/fstab.qcom
+TARGET_RECOVERY_FSTAB := device/samsung/wilcox-common/rootdir/fstab.qcom
 COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
 
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -52,7 +49,7 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 5821660160
 BOARD_FLASH_BLOCK_SIZE := 131072
 
 # Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/serrano-common/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/wilcox-common/bluetooth
 
 # Audio
 AUDIO_FEATURE_ENABLED_INCALL_MUSIC := false
@@ -85,4 +82,4 @@ TARGET_NEED_DISABLE_FACE_DETECTION_BOTH_CAMERAS := true
 TARGET_POWERHAL_VARIANT :=
 
 # Custom RIL class
-BOARD_RIL_CLASS := ../../../device/samsung/serrano-common/ril/
+BOARD_RIL_CLASS := ../../../device/samsung/wilcox-common/ril/
